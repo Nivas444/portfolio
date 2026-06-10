@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+/* ── Tailwind v4 dark mode ────────────────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── CSS Custom Properties ────────────────────────────────── */
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --grey-100: #f5f5f5;
+  --grey-200: #e5e5e5;
+  --grey-400: #a3a3a3;
+  --grey-600: #525252;
+  --grey-700: #404040;
+  --grey-800: #262626;
+  --grey-900: #171717;
+  --grey-950: #0a0a0a;
+  --accent: #ffffff;
+}
+
+/* ── Base Reset ───────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.5); }
+
+/* ── Selection ────────────────────────────────────────────── */
+::selection { background: rgba(255,255,255,0.2); color: #fff; }
+
+/* ── Focus ────────────────────────────────────────────────── */
+*:focus-visible {
+  outline: 1px solid rgba(255,255,255,0.4);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+code, pre, .mono {
+  font-family: var(--font-jetbrains), "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* ── Circuit board animated background ───────────────────── */
+.circuit-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* ── Noise overlay ────────────────────────────────────────── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 256px;
+}
+
+/* ── Scan line effect ─────────────────────────────────────── */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ── Glow animations ──────────────────────────────────────── */
+@keyframes pulse-white {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes circuit-flow {
+  0% { stroke-dashoffset: 1000; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes float-up {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes type-cursor {
+  0%, 100% { border-right-color: white; }
+  50% { border-right-color: transparent; }
+}
+
+.animate-blink { animation: blink 1s step-end infinite; }
+.animate-float { animation: float-up 4s ease-in-out infinite; }
+.animate-rotate { animation: rotate-slow 8s linear infinite; }
+.animate-pulse-white { animation: pulse-white 3s ease-in-out infinite; }
+
+/* ── Magnetic button glow ─────────────────────────────────── */
+.btn-primary {
+  position: relative;
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  transition: all 0.2s;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover::before { opacity: 1; }
+
+.btn-outline {
+  position: relative;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  border-color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.05);
+}
+
+/* ── Card styles ──────────────────────────────────────────── */
+.card-bw {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+}
+
+.card-bw:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* ── Section label ────────────────────────────────────────── */
+.section-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ── Divider gradient ─────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.12), transparent);
+}
+
+/* ── Number display ───────────────────────────────────────── */
+.stat-number {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+  position: absolute;
+  top: -1rem;
+  right: -0.5rem;
+  pointer-events: none;
+  user-select: none;
+}
