@@ -42,25 +42,6 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
       </motion.div>
-
-      {/* Mobile photo (top of page, behind content) */}
-      <div className="absolute inset-0 lg:hidden">
-        <div className="absolute inset-0 bg-black" />
-        <div className="absolute top-0 right-0 w-1/2 h-2/3">
-          <Image
-            src={personalInfo.photoUrl}
-            alt={personalInfo.name}
-            fill
-            className="object-cover object-top"
-            priority
-            sizes="50vw"
-            style={{ filter: "grayscale(20%)" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black" />
-        </div>
-      </div>
-
       {/* Main content */}
       <motion.div
         style={{ opacity: opacitySection }}
@@ -68,6 +49,31 @@ export function Hero() {
       >
         {/* Main content grouping */}
         <div className="flex-1 flex flex-col justify-center py-6 items-center text-center max-w-4xl mx-auto lg:items-start lg:text-left lg:mx-0 lg:max-w-[55%]">
+
+          {/* Mobile-only avatar card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="lg:hidden mb-8 relative group"
+          >
+            {/* Animated glow ring */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-600 blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-300" />
+            {/* Outer border wrapper */}
+            <div className="relative w-36 h-36 rounded-full p-[2px] bg-gradient-to-tr from-white/25 to-white/10">
+              <div className="w-full h-full rounded-full overflow-hidden bg-black relative">
+                <Image
+                  src={personalInfo.photoUrl}
+                  alt={personalInfo.name}
+                  fill
+                  className="object-cover object-top"
+                  priority
+                  sizes="144px"
+                  style={{ filter: "contrast(1.05)" }}
+                />
+              </div>
+            </div>
+          </motion.div>
 
           {/* Name — giant editorial type */}
           <div className="max-w-3xl">
