@@ -60,7 +60,7 @@ export function Hero() {
             {/* Animated glow ring */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-600 blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-300" />
             {/* Outer border wrapper */}
-            <div className="relative w-36 h-36 rounded-full p-[2px] bg-gradient-to-tr from-white/25 to-white/10">
+            <div className="relative w-44 h-44 rounded-full p-[2px] bg-gradient-to-tr from-white/25 to-white/10">
               <div className="w-full h-full rounded-full overflow-hidden bg-black relative">
                 <Image
                   src={personalInfo.photoUrl}
@@ -68,7 +68,7 @@ export function Hero() {
                   fill
                   className="object-cover object-top"
                   priority
-                  sizes="144px"
+                  sizes="176px"
                   style={{ filter: "contrast(1.05)" }}
                 />
               </div>
@@ -81,7 +81,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="text-[clamp(3.8rem,9.5vw,8.5rem)] font-black leading-[1.0] tracking-tight mb-2 select-none"
+              className="text-[clamp(4.8rem,12vw,8.5rem)] font-black leading-[1.0] tracking-tight mb-2 select-none"
               style={{ fontStretch: "condensed" }}
             >
               <span className="text-white inline-block">NIVAS</span>{" "}
@@ -103,7 +103,7 @@ export function Hero() {
               className="flex items-center justify-center lg:justify-start gap-4 mt-6 mb-8"
             >
               <div className="w-8 h-px bg-white/20" />
-              <span className="mono text-[12px] tracking-[0.25em] text-white/70 uppercase">
+              <span className="mono text-sm tracking-[0.25em] text-white/70 uppercase">
                 AI Engineer · Computer Vision · Edge AI
               </span>
               <div className="w-8 h-px bg-white/20" />
@@ -113,7 +113,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="text-white/75 text-base md:text-lg leading-relaxed max-w-2xl mb-10"
+              className="text-white/75 text-lg md:text-xl leading-relaxed max-w-2xl mb-10"
             >
               {personalInfo.subTitle}
             </motion.p>
