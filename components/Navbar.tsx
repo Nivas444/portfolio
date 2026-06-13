@@ -66,7 +66,7 @@ export function Navbar() {
         </motion.button>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="flex items-center gap-8">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.replace("#", "");
             return (
@@ -91,54 +91,14 @@ export function Navbar() {
 
         {/* Right: Resume CTA */}
         <div className="flex items-center gap-4">
-          <motion.a
-            href={personalInfo.resumeUrl}
-            download
-            whileHover={{ scale: 1.03, backgroundColor: "rgba(255,255,255,0.08)" }}
-            whileTap={{ scale: 0.97 }}
-            className="hidden md:flex items-center gap-2 px-4 py-2 text-xs font-semibold tracking-widest uppercase
-              border border-white/25 text-white/70 hover:text-white rounded-full transition-all duration-200"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-white/50 animate-pulse" />
-            Resume
-          </motion.a>
           <button
-            className="md:hidden text-white/60 hover:text-white transition-colors p-1"
+            className="hidden text-white/60 hover:text-white transition-colors p-1"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </nav>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-black/95 backdrop-blur-xl border-b border-white/10"
-          >
-            <div className="px-6 py-6 flex flex-col gap-5">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollTo(link.href)}
-                  className="text-left text-sm text-white/60 hover:text-white tracking-wider uppercase transition-colors"
-                >
-                  {link.label}
-                </button>
-              ))}
-              <a href={personalInfo.resumeUrl} download
-                className="mt-2 py-3 text-center text-xs font-bold tracking-widest uppercase
-                  border border-white/30 text-white rounded-full hover:bg-white/5 transition-colors">
-                Download Resume
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.header>
   );
 }

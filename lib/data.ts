@@ -30,11 +30,9 @@ export const experiences = [
     type: "On-site",
     current: true,
     bullets: [
-      "Architect and build multi-agent AI systems to automate complex document workflows, data extraction, and business operations.",
-      "Develop high-performance backends and core machine learning API services for a B2B SaaS platform.",
-      "Design and deploy low-latency computer vision pipelines on NVIDIA Jetson Orin Nano for edge-device real-time inference.",
-      "Train, fine-tune, and quantize YOLOv8 and classification models, maximizing throughput and reducing hardware overhead.",
-      "Represent the team at government-backed startup exhibitions and innovation panels to demonstrate real-time AI + IoT solutions."
+      "Architect and build multi-agent AI systems to automate complex document workflows and business operations.",
+      "Design and deploy low-latency computer vision pipelines (YOLOv8) on NVIDIA Jetson Orin Nano for edge real-time inference.",
+      "Develop high-performance backends and core machine learning API services for a B2B SaaS platform."
     ],
     techStack: ["AI Agents", "YOLOv8", "NVIDIA Jetson Orin Nano", "Computer Vision", "SaaS Development", "FastAPI"],
   },
@@ -47,13 +45,10 @@ export const experiences = [
     type: "On-site",
     current: false,
     bullets: [
-      "Engineered predictive machine learning models utilizing Random Forest algorithms to analyze historical datasets and forecast risk metrics.",
-      "Gained hands-on experience in Deep Learning workflows, training neural networks and CNN models for pattern recognition.",
-      "Learned end-to-end model deployment processes by constructing data preprocessing pipelines and packaging low-latency inference endpoints with Flask.",
-      "Successfully managed deployment pipelines under tight client sprint deadlines, developing strong pressure-handling and production debugging skills.",
-      "Collaborated with cross-functional teams to design database normalization schemas, reducing preprocessing overhead by 20%."
+      "Engineered predictive machine learning models (Random Forest) to analyze historical datasets and forecast risk metrics.",
+      "Constructed automated data preprocessing pipelines and deployed a low-latency Flask API endpoint for real-time inference."
     ],
-    techStack: ["Deep Learning", "PyTorch", "Random Forest", "Pandas", "Scikit-Learn", "Flask", "Python", "Model Deployment"],
+    techStack: ["Random Forest", "Pandas", "Scikit-Learn", "Flask", "Python"],
   },
 ];
 

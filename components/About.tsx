@@ -98,7 +98,7 @@ export function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/8 w-full max-w-3xl"
+              className="grid grid-cols-4 gap-px bg-white/8 w-full max-w-3xl"
             >
               {stats.map((s, i) => (
                 <motion.div

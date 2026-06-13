@@ -21,7 +21,7 @@ export function Hero() {
       {/* Full-height right photo panel */}
       <motion.div
         style={{ y: yPhoto }}
-        className="absolute right-0 top-0 bottom-0 w-[42%] hidden lg:block"
+        className="absolute right-0 top-0 bottom-0 w-[42%]"
       >
         {/* Pure black wash to kill any transparent bg */}
         <div className="absolute inset-0 bg-black" />
@@ -39,8 +39,6 @@ export function Hero() {
         </div>
         {/* Gradient masks — left edge and bottom to blend into black */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-
       </motion.div>
       {/* Main content */}
       <motion.div
@@ -48,32 +46,7 @@ export function Hero() {
         className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-28 flex-1 flex flex-col justify-between"
       >
         {/* Main content grouping */}
-        <div className="flex-1 flex flex-col justify-center py-6 items-center text-center max-w-4xl mx-auto lg:items-start lg:text-left lg:mx-0 lg:max-w-[55%]">
-
-          {/* Mobile-only avatar card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:hidden mb-8 relative group"
-          >
-            {/* Animated glow ring */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-600 blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-300" />
-            {/* Outer border wrapper */}
-            <div className="relative w-44 h-44 rounded-full p-[2px] bg-gradient-to-tr from-white/25 to-white/10">
-              <div className="w-full h-full rounded-full overflow-hidden bg-black relative">
-                <Image
-                  src={personalInfo.photoUrl}
-                  alt={personalInfo.name}
-                  fill
-                  className="object-cover object-top"
-                  priority
-                  sizes="176px"
-                  style={{ filter: "contrast(1.05)" }}
-                />
-              </div>
-            </div>
-          </motion.div>
+        <div className="flex-1 flex flex-col justify-center py-6 items-start text-left mx-0 max-w-[55%]">
 
           {/* Name — giant editorial type */}
           <div className="max-w-3xl">
@@ -100,7 +73,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55 }}
-              className="flex items-center justify-center lg:justify-start gap-4 mt-6 mb-8"
+              className="flex items-center justify-start gap-4 mt-6 mb-8"
             >
               <div className="w-8 h-px bg-white/20" />
               <span className="mono text-sm tracking-[0.25em] text-white/70 uppercase">
@@ -122,7 +95,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.85 }}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-6"
+              className="flex flex-wrap items-center justify-start gap-6"
             >
               <motion.button
                 whileHover={{ scale: 1.02, boxShadow: "0 0 40px rgba(255,255,255,0.15)" }}
@@ -135,7 +108,7 @@ export function Hero() {
               </motion.button>
               <motion.a
                 href={personalInfo.resumeUrl}
-                download
+                download="Nivas_Resume.pdf"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="px-12 py-5 border border-white/25 text-white text-sm font-black tracking-widest uppercase rounded-full
@@ -150,7 +123,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.95 }}
-              className="flex items-center justify-center lg:justify-start gap-2 mono text-xs tracking-[0.2em] text-white/40 uppercase mt-8"
+              className="flex items-center justify-start gap-2 mono text-xs tracking-[0.2em] text-white/40 uppercase mt-8"
             >
               <MapPin size={13} className="text-white/50 stroke-[1.5]" />
               <span>Tamil Nadu, India &nbsp;·&nbsp; Open to Remote</span>
@@ -179,7 +152,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.1 }}
-            className="hidden md:flex items-end gap-8"
+            className="flex items-end gap-8"
           >
             {[
               { n: "2", label: "Industry Internships" },

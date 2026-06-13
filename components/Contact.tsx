@@ -84,7 +84,7 @@ export function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto animate-fade-in"
+          className="grid grid-cols-4 gap-6 max-w-5xl mx-auto animate-fade-in"
         >
           {/* Email (Gmail) */}
           <div className="bg-white/[0.01] hover:bg-white/[0.02] border border-white/10 hover:border-white/20 transition-all duration-300 p-6 rounded-2xl flex flex-col items-center justify-between text-center min-h-[200px]">
