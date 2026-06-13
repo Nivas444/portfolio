@@ -21,7 +21,7 @@ export function Hero() {
       {/* Full-height right photo panel */}
       <motion.div
         style={{ y: yPhoto }}
-        className="absolute right-0 top-0 bottom-0 w-[42%]"
+        className="absolute right-0 top-0 bottom-[116px] w-[42%]"
       >
         {/* Pure black wash to kill any transparent bg */}
         <div className="absolute inset-0 bg-black" />
@@ -34,11 +34,12 @@ export function Hero() {
             className="object-cover object-top"
             priority
             sizes="42vw"
-            style={{ filter: "grayscale(20%) contrast(1.05)" }}
+            style={{ filter: "contrast(1.05)" }}
           />
         </div>
-        {/* Gradient masks — left edge and bottom to blend into black */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/10 to-transparent" />
+        {/* Edge gradient masks to blend cleanly into black background */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent" />
+        <div className="absolute left-0 right-0 bottom-0 h-24 bg-gradient-to-t from-black to-transparent" />
       </motion.div>
       {/* Main content */}
       <motion.div
